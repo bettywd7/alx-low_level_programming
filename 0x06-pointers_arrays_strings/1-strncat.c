@@ -1,41 +1,29 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
-*main - check the code
+*_strncat- function that concatenates two strings.
 *
-*Return: Always 0.
- */
-int main(void)
-{
-char s1[98];
-char *ptr;
-int i;
+*@dest: pointer to destination char
+*@src: pointer to source char
+*@n: number of bytes to receive
+*Return: char
+*/
 
-for (i = 0; i < 98 - 1; i++)
+char *_strncat(char *dest, char *src, int n)
 {
-s1[i] = '*';
-}
-s1[i] = '\0';
-printf("%s\n", s1);
-ptr = _strncpy(s1, "First, solve the problem. Then, write the code\n", 5);
-printf("%s\n", s1);
-printf("%s\n", ptr);
-ptr = _strncpy(s1, "First, solve the problem. Then, write the code\n", 90);
-printf("%s", s1);
-printf("%s", ptr);
-for (i = 0; i < 98; i++)
+unsigned int i = 0;
+int j = 0;
+
+while (*(dest + i) != '\0')
+i++;
+while (*(src + j) != '\0')
 {
-if (i % 10)
+if (j < n)
 {
-printf(" ");
+*(dest + i) = *(src + j);
+i++;
 }
-if (!(i % 10) && i)
-{
-printf("\n");
+j++;
 }
-printf("0x%02x", s1[i]);
-}
-printf("\n");
-return (0);
+return (dest);
 }
