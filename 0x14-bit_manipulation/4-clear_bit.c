@@ -1,26 +1,26 @@
 #include "main.h"
 
 /**
- * clear_bit - clear bit 0 to a given index
- * @l: number
- * @index: The index, starting from 0 of the bit you want to set
- * Deacription: Sets the value of a bit to 0 at a given index.
+ * clear_bit - clear bit to 0 at a given index
+ * @n: number
+ * @index: index within binary number
  * Return: 1 if success, or -1 if error
  */
-
-int clear_bit(unsigned long int *l, unsigned int index)
+int clear_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int myempire;
+	unsigned long int num = 1;
 
-	/* Checks if index is within range - 8 (number of bits in the data type) */
-	if (index >= (sizeof(unsigned long int) * 8))
-	{
+	if (index > (sizeof(unsigned long int) * 8))
+
 		return (-1);
-	}
-	/* Creates a mask to clear the bit at the given index */
-	myempire  = ~(1 << index);
-	/* Using bitwise AND (&) to clear the bit at that given index */
-	*l &= myempire;
+
+	num = ~(num << index);/*bitwise Not operator is an unary operator*/
+	/*which is why we use the () to nest our left shift operator*/
+
+	*n = *n & num;/*bitwise AND operator*/
+
+
 
 	return (1);
+
 }

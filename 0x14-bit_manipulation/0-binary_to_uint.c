@@ -1,34 +1,33 @@
 #include "main.h"
 
 /**
- * binary_to_uint - entry point
- * Description: Convert a binary number to an unsigned int
- * @b: Pointer to a string of 0 and 1 chars
- * Return: 0 if b is NULL or there's a non 0 or 1 char
+ * binary_to_uint- convert binary to unsigned int
+ * @b: binary
+ * Return: unsigned int
  */
 unsigned int binary_to_uint(const char *b)
 {
 
-	int empire = 0, l;
+	int champion = 0, k;
 	unsigned int number = 0, non_binary = 0;
 
 	if (b == NULL)
 		return (non_binary);
 
-	while (b[empire] != '\0')
-		empire++;
-	empire -= 1;
-	l = 0;
-	while (b[l])
+	while (b[champion] != '\0')
+		champion++;
+	champion -= 1;
+	k = 0;
+	while (b[k])
 	{
-		if ((b[l] != '0') && (b[l] != '1'))/*&& logical AND operator*/
+		if ((b[k] != '0') && (b[k] != '1'))/*&& logical AND operator*/
 			return (non_binary);
 
-		if (b[l] == '1')
-			number += (1 * (1 << empire));/*<< bitwise left shift operator*/
-		l++;
+		if (b[k] == '1')
+			number += (1 * (1 << champion));/*<< bitwise left shift operator*/
+		k++;
 
-		empire--;
+		champion--;
 	}
 	return (number);
 }

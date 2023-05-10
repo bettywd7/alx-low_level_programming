@@ -1,11 +1,10 @@
 #include "main.h"
 
 /**
- * set_bit -  set bit to 1 at index
+ * set_bit - set bit to 1 at index
  * @n: number
  * @index: index within binary number
- * Description: Sets the value of a bit to 1 at a given index.
- * Return: 1 if it worked, or -1 if an error occurred
+ * Return: 1 if success, or -1 if error
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {

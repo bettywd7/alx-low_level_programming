@@ -1,26 +1,23 @@
-##include "main.h"
+#include "main.h"
 
 /**
- * flip_bits - count the number of bit needed
- * Description: Returns the number of bits you would need to flip
- * to get from one number to another.
- * @k: First digit
- * @j: Second digit tio flip n to
- * Return: The necessary number of bits to flip to get from k to j
+ * flip_bits - Counts the number of bits needed to be
+ * flipped to get from one number to another.
+ * @n: The number.
+ * @m: The number to flip n to.
+ * Return: The necessary number of bits to flip to get from n to m.
  */
-
-unsigned int flip_bits(unsigned long int k, unsigned long int j)
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned long int xor_op = k ^ j;
-	unsigned int counter = 0;
+	unsigned long int diff, bits = 0;
 
-	/* Count number of set bits (bits with 1) in xor_op (xor operator) */
-	while (xor_op)
+	diff = n ^ m;
+
+	while (diff > 0)
 	{
-		/* Checks if the last bit is 1 */
-		counter += (xor_op & 1);
-		/* Right shifts the bits by 1 bit */
-		xor_op >>= 1;
+		bits += (diff & 1);
+		diff >>= 1;
 	}
-	return (counter);
-}}
+
+	return (bits);
+}
